@@ -38,7 +38,7 @@ pub enum MenuStyle {
     /// Vanilla's screens, exactly as the parity harnesses expect them.
     Classic,
 }
-static STYLE: AtomicU8 = AtomicU8::new(0);
+static STYLE: AtomicU8 = AtomicU8::new(1);
 pub fn style() -> MenuStyle {
     if STYLE.load(Ordering::Relaxed) == 1 {
         MenuStyle::Classic
@@ -56,14 +56,14 @@ pub fn set_style(s: MenuStyle) {
 /// vanilla's options file stays exactly as vanilla writes it.
 pub fn load_preferences(dir: &Path) {
     let text = std::fs::read_to_string(dir.join("horizon.txt")).unwrap_or_default();
-    let classic = text.lines().any(|l| l.trim() == "menuStyle:classic");
+    let horizon = text.lines().any(|l| l.trim() == "menuStyle:horizon");
     // HORIZON_MENU_STYLE=classic forces vanilla's screens (tests, harnesses).
     let forced = std::env::var("HORIZON_MENU_STYLE").ok();
     set_style(match forced.as_deref() {
         Some("classic") => MenuStyle::Classic,
         Some("horizon") => MenuStyle::Horizon,
-        _ if classic => MenuStyle::Classic,
-        _ => MenuStyle::Horizon,
+        _ if horizon => MenuStyle::Horizon,
+        _ => MenuStyle::Classic,
     });
 }
 pub fn save_preferences(dir: &Path) {

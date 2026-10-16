@@ -2942,6 +2942,7 @@ mod tests {
 
     #[test]
     fn classic_video_settings_lead_back_to_horizon_menus() {
+        set_style(MenuStyle::Horizon);
         let s = Settings::default();
         let mut ui = OptionsUi::default();
         ui.push(Page::Video);

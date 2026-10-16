@@ -32,7 +32,7 @@ Every subsystem matches vanilla in all 281 parity harnesses, on Linux and macOS:
 
 The latest release ([notes](https://github.com/ludovic111/horizon/releases/tag/v2026.10.13.1)):
 
-- **Horizon's own menus:** a new title screen, world list, options and pause menu in the launcher's style, over a live frozen landscape. The vanilla look is still available: Options → Interface → Menu style → Classic.
+- **Horizon's own menus:** an optional title screen, world list, options and pause menu in the launcher's style, over a live frozen landscape. Classic menus are the default; switch through Options → Video Settings → Menu Style.
 - **Graphics settings, Simple and Advanced:** presets (Performance, Balanced, Quality, Ultra), or every rendering, quality, display and performance setting, each with a short description and its cost, plus a performance overlay.
 - **Much faster rendering:** for example, at render distance 8 over a village, 363 → 2,409 FPS on an RTX 4080. Render distance 32 still stutters in places.
 - **Fixed:** no sound on Linux; Linux builds that only ran on the machine they were built on; a missing DLL on Windows (the launcher no longer needs the Visual C++ runtime); memory growing and the frame rate dropping near villages (mobs were duplicated when chunks reloaded); resource preparation failing on Linux with "Missing … java-objc-bridge" ([#41](https://github.com/ludovic111/horizon/issues/41)); the hand and held item at high FOV; missing swing animations.
@@ -70,7 +70,7 @@ Captured in the Rust client itself, with vanilla assets and no mods or shaders.
   </tr>
 </table>
 
-The vanilla menus are one setting away: Options → Interface → Menu style → Classic. See [Graphics settings](docs/graphics.md).
+Classic menus are the default. To try Horizon's menus, open Options → Video Settings → Menu Style; switch back through Options → Interface → Menu style → Classic. Your choice is remembered. See [Graphics settings](docs/graphics.md).
 
 ### In game
 
